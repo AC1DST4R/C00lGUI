@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>C00lGUI V9 Reimagined by AC1DST4R</title>
+<title>Welcome Screen</title>
 <style>
 html, body {
     margin: 0;
@@ -44,6 +44,8 @@ button {
     cursor: pointer;
     border-radius: 4px;
     transition: all 0.2s;
+    margin: 10px; /* spacing between buttons */
+    display: inline-block;
 }
 
 button:hover {
@@ -61,14 +63,18 @@ button:hover {
 <body>
 
 <div id="start-container">
-    <h1>C00lGUI V9 Reimagined by AC1DST4R</h1>
-    <button id="proceedBtn">Proceed</button>
+    <h1>Welcome U53R</h1>
+    <button id="coolGUIBtn">C00lGUI V9</button>
+    <button id="forsakenBtn">Forsaken C00lGUI (Nerfed)</button>
 </div>
 
 <script>
-document.getElementById('proceedBtn').addEventListener('click', () => {
-    // Redirect to the GUI folder
+document.getElementById('coolGUIBtn').addEventListener('click', () => {
     window.location.href = './GUI/';
+});
+
+document.getElementById('forsakenBtn').addEventListener('click', () => {
+    window.location.href = './FORSAKENGUI/';
 });
 </script>
 
