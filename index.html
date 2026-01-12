@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C00lGUI reimagined by AC1DST4R</title>
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background: black; /* GUI background */
+        font-family: Arial, sans-serif;
+        color: white;
+    }
+    #gui {
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+        border: 2px solid red;
+        overflow-y: auto; /* Scroll if too many buttons */
+        display: flex;
+        flex-direction: column;
+    }
+    h1 {
+        text-align: center;
+        margin: 0 0 10px 0;
+        font-size: 1.5em;
+        border-bottom: 1px solid red;
+        padding-bottom: 5px;
+    }
+    .buttons {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 10px;
+        flex-grow: 1;
+    }
+    button {
+        background: #222;
+        border: 1px solid red;
+        color: white;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 0.85em;
+    }
+    button:hover {
+        background: red;
+        color: black;
+    }
+</style>
+</head>
+<body>
+
+<div id="gui">
+    <h1>C00lGUI reimagined by AC1DST4R</h1>
+    <div class="buttons">
+        <!-- Full list of buttons -->
+        <button>Flood</button>
+        <button>Clear Terrain</button>
+        <button>Apoc Troll</button>
+        <button>Set Skybox</button>
+        <button>Unanchor All</button>
+        <button>Decal Spam</button>
+        <button>Force Teleport</button>
+        <button>Clear Workspace</button>
+        <button>Kill All</button>
+        <button>Kick All</button>
+        <button>Create Baseplate</button>
+        <button>Intimidation</button>
+        <button>iOrb</button>
+        <button>Kill GUI</button>
+        <button>Silent Executor</button>
+        <button>Nilizer</button>
+        <button>Remso Admin</button>
+        <button>X Admin</button>
+        <button>Lag GUI</button>
+        <button>Global Message GUI</button>
+        <button>Drage</button>
+        <button>Dual Blades</button>
+        <button>Eyelaser</button>
+        <button>Knife</button>
+        <button>Lance</button>
+        <button>Lightsaber</button>
+        <button>Master Hand</button>
+        <button>Plane</button>
+        <button>Snowball</button>
+        <button>Staff</button>
+        <button>Techno Gauntlet</button>
+        <button>Wand</button>
+        <button>xBow</button>
+        <button>Custom Gear</button>
+        <button>Stamper Tools</button>
+        <button>Tool Stealer</button>
+        <button>Dev Uzi</button>
+        <button>Laser Rifle</button>
+        <button>Draw</button>
+        <button>Become Owner [PS]</button>
+        <button>Disco Fog</button>
+        <button>Fencing Restore</button>
+        <button>Leaderstat Add</button>
+        <button>Leaderstat Change</button>
+        <button>Play Music</button>
+        <button>Restore Skybox</button>
+        <button>Steal Player Points</button>
+        <button>Anti-Robloxian</button>
+        <button>Billboard Gui</button>
+        <button>Change Name</button>
+        <button>Chicken Arms</button>
+        <button>Disco Character</button>
+        <button>Dominus Ghost</button>
+        <button>Floating Pad</button>
+        <button>Head Shake</button>
+        <button>Heal</button>
+        <button>Mesh Disco</button>
+        <button>Set Walkspeed</button>
+        <button>Minigun</button>
+        <button>Airstrike</button>
+        <button>Gravity Coil</button>
+        <button>Hyperbike</button>
+        <button>Ghostfire Sword</button>
+        <button>Dual Venomshanks</button>
+        <button>Dual Darkhearts</button>
+        <button>Icedagger</button>
+        <button>Linked Sword</button>
+    </div>
+</div>
+
+<script>
+    // Buttons do nothing
+    document.querySelectorAll('button').forEach(btn => {
+        btn.addEventListener('click', () => {});
+    });
+</script>
+
+</body>
+</html>
