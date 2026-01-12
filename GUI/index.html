@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>C00lGUI V9 Reimagined by AC1DST4R</title>
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    font-family: Arial, sans-serif;
+    color: white;
+    overflow: hidden;
+}
+
+/* MAIN GUI */
+#gui {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border: 2px solid red;
+    opacity: 0;
+    transform: scale(0.8);
+    animation: guiOpen 0.5s forwards;
+}
+
+/* Opening animation */
+@keyframes guiOpen {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* TITLE */
+h1 {
+    margin: 0;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 1.6em;
+    border-bottom: 2px solid red;
+}
+
+/* NAVIGATION */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    z-index: 2;
+}
+
+.nav button {
+    background: #222;
+    border: 2px solid red;
+    color: white;
+    padding: 12px 20px;
+    font-size: 1.1em;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.nav button:hover {
+    background: red;
+    color: black;
+}
+
+/* PAGES CONTAINER */
+.pages-container {
+    position: relative;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+/* BUTTON GRID / PAGE */
+.page {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+    padding: 10px;
+    box-sizing: border-box;
+    position: absolute;
+    inset: 0;
+    background: #111;
+    border-top: 1px solid red;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.page button {
+    background: #222;
+    border: 2px solid red;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 18px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.page button:hover {
+    background: red;
+    color: black;
+    transform: scale(1.05);
+}
+
+.hidden {
+    display: none;
+}
+
+/* LOADER OVERLAY */
+#loaderOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+#loaderBox {
+    width: 360px;
+    background: #111;
+    border: 2px solid red;
+    padding: 20px;
+    text-align: center;
+    animation: popup 0.25s ease-out;
+}
+
+@keyframes popup {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes close {
+    from { transform: scale(1); opacity: 1; }
+    to { transform: scale(0.8); opacity: 0; }
+}
+
+#loaderTitle {
+    margin-bottom: 15px;
+    border-bottom: 1px solid red;
+    padding-bottom: 5px;
+    font-size: 1.3em;
+}
+
+#progressText {
+    margin: 15px 0;
+    font-size: 1em;
+}
+
+.progressBar {
+    width: 100%;
+    height: 20px;
+    border: 2px solid red;
+    background: black;
+    border-radius: 3px;
+}
+
+.progressFill {
+    width: 0%;
+    height: 100%;
+    background: red;
+    border-radius: 3px;
+    transition: width 0.6s ease;
+}
+</style>
+</head>
+<body>
+
+<div id="gui">
+    <h1>C00lGUI V9 reimagined by AC1DST4R</h1>
+
+    <div class="nav">
+        <button id="prev">&lt;</button>
+        <button id="next">&gt;</button>
+    </div>
+
+    <!-- PAGES CONTAINER -->
+    <div class="pages-container">
+        <!-- PAGE 1 -->
+        <div class="page" id="page1">
+            <button>Flood</button>
+            <button>Clear Terrain</button>
+            <button>Apoc Troll</button>
+            <button>Set Skybox</button>
+            <button>Unanchor All</button>
+            <button>Decal Spam</button>
+            <button>Force Teleport</button>
+            <button>Clear Workspace</button>
+            <button>Kill All</button>
+            <button>Kick All</button>
+            <button>Create Baseplate</button>
+            <button>Intimidation</button>
+            <button>iOrb</button>
+            <button>Kill GUI</button>
+            <button>Silent Executor</button>
+            <button>Nilizer</button>
+        </div>
+
+        <!-- PAGE 2 -->
+        <div class="page hidden" id="page2">
+            <button>Remso Admin</button>
+            <button>X Admin</button>
+            <button>Lag GUI</button>
+            <button>Global Message GUI</button>
+            <button>Drage</button>
+            <button>Dual Blades</button>
+            <button>Eyelaser</button>
+            <button>Knife</button>
+            <button>Lance</button>
+            <button>Lightsaber</button>
+            <button>Master Hand</button>
+            <button>Plane</button>
+            <button>Snowball</button>
+            <button>Staff</button>
+            <button>Techno Gauntlet</button>
+            <button>Wand</button>
+        </div>
+
+        <!-- PAGE 3 -->
+        <div class="page hidden" id="page3">
+            <button>xBow</button>
+            <button>Custom Gear</button>
+            <button>Stamper Tools</button>
+            <button>Tool Stealer</button>
+            <button>Dev Uzi</button>
+            <button>Laser Rifle</button>
+            <button>Draw</button>
+            <button>Become Owner [PS]</button>
+            <button>Disco Fog</button>
+            <button>Fencing Restore</button>
+            <button>Leaderstat Add</button>
+            <button>Leaderstat Change</button>
+            <button>Play Music</button>
+            <button>Restore Skybox</button>
+            <button>Steal Player Points</button>
+            <button>Anti-Robloxian</button>
+        </div>
+    </div>
+</div>
+
+<!-- Loader -->
+<div id="loaderOverlay">
+    <div id="loaderBox">
+        <div id="loaderTitle"></div>
+        <div class="progressBar">
+            <div class="progressFill" id="progressFill"></div>
+        </div>
+        <div id="progressText">Loading...</div>
+    </div>
+</div>
+
+<script>
+// Page system with sliding animation
+const pages = [
+    document.getElementById('page1'),
+    document.getElementById('page2'),
+    document.getElementById('page3')
+];
+let currentPage = 0;
+
+function switchPage(nextIndex) {
+    if(nextIndex === currentPage || nextIndex < 0 || nextIndex >= pages.length) return;
+
+    const outgoing = pages[currentPage];
+    const incoming = pages[nextIndex];
+
+    incoming.classList.remove('hidden');
+    incoming.style.transform = `translateX(${nextIndex > currentPage ? '100%' : '-100%'})`;
+    incoming.style.opacity = 0;
+
+    outgoing.style.transform = `translateX(${nextIndex > currentPage ? '-100%' : '100%'})`;
+    outgoing.style.opacity = 0;
+
+    setTimeout(() => {
+        incoming.style.transition = 'transform 0.4s ease, opacity 0.4s ease';
+        incoming.style.transform = 'translateX(0)';
+        incoming.style.opacity = 1;
+    }, 20);
+
+    setTimeout(() => {
+        outgoing.classList.add('hidden');
+        outgoing.style.transition = '';
+        outgoing.style.transform = '';
+        outgoing.style.opacity = '';
+        incoming.style.transition = '';
+        incoming.style.transform = '';
+        incoming.style.opacity = '';
+        currentPage = nextIndex;
+    }, 450);
+}
+
+document.getElementById('prev').addEventListener('click', () => switchPage(currentPage -1));
+document.getElementById('next').addEventListener('click', () => switchPage(currentPage +1));
+
+// Loader
+const overlay = document.getElementById("loaderOverlay");
+const title = document.getElementById("loaderTitle");
+const fill = document.getElementById("progressFill");
+const text = document.getElementById("progressText");
+const box = document.getElementById("loaderBox");
+
+function runLoader(exploitName) {
+    overlay.style.display = "flex";
+    box.style.animation = "popup 0.25s ease-out";
+    title.textContent = exploitName + " Loading";
+    fill.style.width = "1%";
+    text.textContent = "Loading... 1%";
+
+    const steps = [30,50,80,100];
+    let i = 0;
+    const interval = setInterval(() => {
+        fill.style.width = steps[i] + "%";
+        text.textContent = "Loading... " + steps[i] + "%";
+        i++;
+        if(i===steps.length){
+            clearInterval(interval);
+            setTimeout(()=> {
+                text.textContent = "Script Injected :D";
+                setTimeout(closeLoader,900);
+            },600);
+        }
+    },700);
+}
+
+function closeLoader() {
+    box.style.animation = "close 0.25s ease-in";
+    setTimeout(()=>{
+        overlay.style.display = "none";
+        fill.style.width = "0%";
+    },250);
+}
+
+document.querySelectorAll(".page button").forEach(btn => {
+    btn.addEventListener("click", ()=> runLoader(btn.innerText));
+});
+</script>
+</body>
+</html>
